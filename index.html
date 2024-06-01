@@ -10,11 +10,22 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center;
+            justify-content: flex-start; /* Allinea gli elementi all'inizio */
             height: 100vh;
             margin: 0;
             background-color: #000;
             color: #fff;
+            position: relative;
+        }
+        .ascii-art {
+            position: absolute;
+            top: 10px; /* Posiziona l'ASCII art in alto */
+            left: 50%;
+            transform: translateX(-50%); /* Centra orizzontalmente l'ASCII art */
+            white-space: pre;
+            font-family: monospace;
+            color: rgba(255, 255, 255, 0.7); /* Colore bianco semi-trasparente */
+            z-index: 1;
         }
         .timer {
             margin: 10px;
@@ -24,6 +35,9 @@
             width: 80%;
             max-width: 400px;
             text-align: center;
+            z-index: 2;
+            position: relative;
+            background-color: rgba(0, 0, 0, 0.8); /* Sfondo semi-trasparente */
         }
         .timer span {
             font-size: 2em;
@@ -43,14 +57,17 @@
             background-color: #ccc;
         }
     </style>
-    <!-- Meta tags per la web app -->
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <meta name="apple-mobile-web-app-title" content="Timer Multipli">
-    <!-- Icona per la web app -->
-    <link rel="apple-touch-icon" href="icon.png">
 </head>
 <body>
+    <div class="ascii-art">
+        <!-- ASCII Art of a chef -->
+        <pre>
+     ___
+    (o o)
+ooO--(_)--Ooo
+        </pre>
+    </div>
+
     <div class="timer">
         <span id="timer1" onclick="toggleTimer(1)">00:00:00</span>
         <button onclick="resetTimer(1)">Reset</button>
