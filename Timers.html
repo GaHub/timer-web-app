@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Timer Multipli</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #000;
+            color: #fff;
+        }
+        .timer {
+            margin: 10px;
+            padding: 10px;
+            border: 1px solid #fff;
+            border-radius: 5px;
+            width: 80%;
+            max-width: 400px;
+            text-align: center;
+        }
+        .timer span {
+            font-size: 2em;
+            display: block;
+            cursor: pointer;
+        }
+        button {
+            margin-top: 10px;
+            background-color: #fff;
+            color: #000;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #ccc;
+        }
+    </style>
+    <!-- Meta tags per la web app -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Timer Multipli">
+    <!-- Icona per la web app -->
+    <link rel="apple-touch-icon" href="icon.png">
+</head>
+<body>
+    <div class="timer">
+        <span id="timer1" onclick="toggleTimer(1)">00:00:00</span>
+        <button onclick="resetTimer(1)">Reset</button>
+    </div>
+    <div class="timer">
+        <span id="timer2" onclick="toggleTimer(2)">00:00:00</span>
+        <button onclick="resetTimer(2)">Reset</button>
+    </div>
+    <div class="timer">
+        <span id="timer3" onclick="toggleTimer(3)">00:00:00</span>
+        <button onclick="resetTimer(3)">Reset</button>
+    </div>
+    <div class="timer">
+        <span id="timer4" onclick="toggleTimer(4)">00:00:00</span>
+        <button onclick="resetTimer(4)">Reset</button>
+    </div>
+    <div class="timer">
+        <span id="timer5" onclick="toggleTimer(5)">00:00:00</span>
+        <button onclick="resetTimer(5)">Reset</button>
+    </div>
+
+    <script>
+        let timers = [null, null, null, null, null];
+        let times = [0, 0, 0, 0, 0];
+
+        function toggleTimer(index) {
+            if (timers[index - 1] === null) {
+                startTimer(index);
+            } else {
+                stopTimer(index);
+            }
+        }
+
+        function startTimer(index) {
+            timers[index - 1] = setInterval(() => {
+                times[index - 1]++;
+                document.getElementById('timer' + index).innerText = formatTime(times[index - 1]);
+            }, 1000);
+        }
+
+        function stopTimer(index) {
+            clearInterval(timers[index - 1]);
+            timers[index - 1] = null;
+        }
+
+        function resetTimer(index) {
+            clearInterval(timers[index - 1]);
+            timers[index - 1] = null;
+            times[index - 1] = 0;
+            document.getElementById('timer' + index).innerText = '00:00:00';
+        }
+
+        function formatTime(seconds) {
+            const h = String(Math.floor(seconds / 3600)).padStart(2, '0');
+            const m = String(Math.floor((seconds % 3600) / 60)).padStart(2, '0');
+            const s = String(seconds % 60).padStart(2, '0');
+            return `${h}:${m}:${s}`;
+        }
+    </script>
+</body>
+</html>
