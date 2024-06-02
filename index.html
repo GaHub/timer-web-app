@@ -18,17 +18,15 @@
             position: relative;
         }
         .ascii-art {
-            position: absolute;
-            top: 10px; /* Posiziona l'ASCII art in alto */
-            left: 50%;
-            transform: translateX(-50%); /* Centra orizzontalmente l'ASCII art */
-            white-space: pre;
+            position: relative;
+            margin-top: 5px; /* Distanza dall'alto della pagina */
+            white-space: pre; /* Preserva gli spazi e i ritorni a capo */
             font-family: monospace;
             color: rgba(255, 255, 255, 0.7); /* Colore bianco semi-trasparente */
             z-index: 1;
         }
         .timer {
-            margin: 10px;
+            margin: 20px; /* Distanza tra i timer e l'ASCII art */
             padding: 10px;
             border: 1px solid #fff;
             border-radius: 5px;
