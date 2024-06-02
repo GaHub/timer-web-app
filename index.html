@@ -10,35 +10,20 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: flex-start; /* Allinea gli elementi all'inizio */
+            justify-content: center;
             height: 100vh;
             margin: 0;
             background-color: #000;
             color: #fff;
-            position: relative;
-        }
-        .ascii-art {
-            position: relative;
-            margin: 0; /* Elimina il margine superiore */
-            white-space: pre; /* Preserva gli spazi e i ritorni a capo */
-            font-family: monospace;
-            color: rgba(255, 255, 255, 0.7); /* Colore bianco semi-trasparente */
-            z-index: 1;
         }
         .timer {
-            margin: 10px 0; /* Mantieni il margine superiore e inferiore tra i timer */
+            margin: 10px;
             padding: 10px;
             border: 1px solid #fff;
             border-radius: 5px;
             width: 80%;
             max-width: 400px;
             text-align: center;
-            z-index: 2;
-            position: relative;
-            background-color: rgba(0, 0, 0, 0.8); /* Sfondo semi-trasparente */
-        }
-        .first-timer {
-            margin-top: 0; /* Elimina il margine superiore per il primo timer */
         }
         .timer span {
             font-size: 2em;
@@ -60,16 +45,7 @@
     </style>
 </head>
 <body>
-    <div class="ascii-art">
-        <!-- ASCII Art of a chef -->
-        <pre>
-     ___
-    (o o)
-ooO--(_)--Ooo
-        </pre>
-    </div>
-
-    <div class="timer first-timer">
+    <div class="timer">
         <span id="timer1" onclick="toggleTimer(1)">00:00:00</span>
         <button onclick="resetTimer(1)">Reset</button>
     </div>
