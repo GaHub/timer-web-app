@@ -4,26 +4,45 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Timer Multipli</title>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="mobile-web-app-capable" content="yes">
+    <link rel="manifest" href="manifest.json">
     <style>
         body {
             font-family: Arial, sans-serif;
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center;
+            justify-content: flex-start;
             height: 100vh;
             margin: 0;
-            background-color: #000;
+            background: url('background.jpg') no-repeat center center fixed;
+            background-size: cover;
             color: #fff;
+            position: relative;
+        }
+        .ascii-art {
+            margin: 10px 0; /* Riduce il margine superiore */
+            white-space: pre; /* Preserva gli spazi e i ritorni a capo */
+            font-family: monospace;
+            color: rgba(255, 255, 255, 0.7); /* Colore bianco semi-trasparente */
+            z-index: 1;
         }
         .timer {
-            margin: 10px;
+            margin: 10px 0; /* Mantiene il margine superiore e inferiore tra i timer */
             padding: 10px;
             border: 1px solid #fff;
             border-radius: 5px;
             width: 80%;
             max-width: 400px;
             text-align: center;
+            z-index: 2;
+            position: relative;
+            background-color: rgba(0, 0, 0, 0.8); /* Sfondo semi-trasparente */
+        }
+        .first-timer {
+            margin-top: 0; /* Elimina il margine superiore per il primo timer */
         }
         .timer span {
             font-size: 2em;
@@ -45,7 +64,16 @@
     </style>
 </head>
 <body>
-    <div class="timer">
+    <div class="ascii-art">
+        <!-- ASCII Art of a chef -->
+        <pre>
+     ___
+    (o o)
+ooO--(_)--Ooo
+        </pre>
+    </div>
+
+    <div class="timer first-timer">
         <span id="timer1" onclick="toggleTimer(1)">00:00:00</span>
         <button onclick="resetTimer(1)">Reset</button>
     </div>
