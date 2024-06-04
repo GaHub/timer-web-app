@@ -14,20 +14,13 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: flex-start;
+            justify-content: center; /* Centra verticalmente i timer */
             height: 100vh;
             margin: 0;
             background: url('background.jpg') no-repeat center center fixed;
             background-size: cover;
             color: #fff;
             position: relative;
-        }
-        .ascii-art {
-            margin: 10px 0; /* Riduce il margine superiore */
-            white-space: pre; /* Preserva gli spazi e i ritorni a capo */
-            font-family: monospace;
-            color: rgba(255, 255, 255, 0.7); /* Colore bianco semi-trasparente */
-            z-index: 1;
         }
         .timer {
             margin: 10px 0; /* Mantiene il margine superiore e inferiore tra i timer */
@@ -64,15 +57,6 @@
     </style>
 </head>
 <body>
-    <div class="ascii-art">
-        <!-- ASCII Art of a chef -->
-        <pre>
-     ___
-    (o o)
-ooO--(_)--Ooo
-        </pre>
-    </div>
-
     <div class="timer first-timer">
         <span id="timer1" onclick="toggleTimer(1)">00:00:00</span>
         <button onclick="resetTimer(1)">Reset</button>
